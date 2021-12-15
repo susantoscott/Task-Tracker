@@ -6,7 +6,6 @@ import Footer from './components/Footer'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 
-
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
@@ -32,12 +31,6 @@ function App() {
     const res = await fetch(`http://localhost:8080/tasks/${id}`);
     const data = await res.json();
     return data;
-  }
-
-  // Toggle Display
-  const onAdd = () => {
-    setShowAddTask(!showAddTask);
-
   }
 
   // Add Task
@@ -83,6 +76,12 @@ function App() {
       return task.id == id ? { ...task, reminder: data.reminder } : task;
     }))
   };
+
+  // Toggle Display
+  const onAdd = () => {
+    setShowAddTask(!showAddTask);
+
+  }
 
   return (
     <Router>
